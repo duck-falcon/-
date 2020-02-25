@@ -2,7 +2,7 @@
 #include "../../iutest/include/iutest.hpp"
 #include <bits/stdc++.h>
 using namespace std;
-#include "../sieve.cpp"
+#include "../prime_table.cpp"
 
 const int INF  =  2147483647 - 1;
 const int MINF = -2147483648;

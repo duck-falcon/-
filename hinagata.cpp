@@ -20,9 +20,7 @@ template<>
 void pv(vector<P> vec) {
   cout << "[";
   for(auto& v : vec) {
-    cout << "<";
-    cout << v.fi << ","<< v.se << ">";
-    cout << ",";
+    cout << "<" << v.fi << ","<< v.se << ">" << ",";
   }
   cout << "]" << endl;
 }

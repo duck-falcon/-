@@ -1,12 +1,10 @@
 // int n以下の素数リスト
-struct Sieve {
+struct PrimeTable {
   int n;
   vector<int> sieve, primes;
-  Sieve(int n) : n(n), sieve(n+1) {
+  PrimeTable(int n) : n(n), sieve(n+1) {
     sieve[0] = sieve[1] = -1;
-    int mx = (int)sqrt(n) + 1;
-    for(int i = 2;i < n+1;++i) {
-      if(i > mx) break;
+    for(long long i = 2;i < n+1;++i) {
       if (sieve[i]) continue;
       primes.emplace_back(i);
       sieve[i] = i;
