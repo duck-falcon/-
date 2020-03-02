@@ -2,8 +2,9 @@
 using namespace std;
 #include "../prime_table.cpp"
 
-int main(int argc,char *argv[]) {
-  const int N = stoi(argv[1]);
+int main() {
+  int N;
+  cin >> N;
 
   // Sieve生成
   clock_t start = clock();
