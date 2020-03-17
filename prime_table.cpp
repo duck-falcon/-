@@ -15,6 +15,13 @@ struct PrimeTable {
   bool isPrime(int m) { return sieve[m] == m; }
   vector<int> factorList(int x) {
     vector<int> res;
+    if(x == 0) {
+      res.emplace_back(0);
+      return res;
+    } else if(x == 1) {
+      res.emplace_back(1);
+      return res;
+    }
     while (x != 1) {
       res.emplace_back(sieve[x]);
       x /= sieve[x];

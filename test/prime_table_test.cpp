@@ -7,8 +7,16 @@ using namespace std;
 const int INF  =  2147483647 - 1;
 const int MINF = -2147483648;
 
+// primesメンバ変数のテスト
 IUTEST(primes, max)
 {
-    Sieve s(INF);
-    IUTEST_ASSERT_EQ(s.primes.back(), 2147483629);
+    Sieve s(1e7);
+    IUTEST_ASSERT_EQ(s.primes.back(), 999983);
+}
+
+IUTEST(primes, hazureti)
+{
+    Sieve s(100);
+    IUTEST_ASSERT_EQ(s.parimes[0], -1);
+    IUTEST_ASSERT_EQ(s.parimes[1], -1);
 }
