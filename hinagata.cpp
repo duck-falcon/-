@@ -5,6 +5,7 @@
 #define fi first
 #define se second
 #define emb emplace_back
+#define fcout cout << fixed << setprecision(15)
 
 using namespace std;
 using ll = long long;
@@ -26,7 +27,6 @@ void pv(vector<P> vec) {
 }
 
 int main() {
-
 
   return 0;
 }
