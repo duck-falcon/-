@@ -23,8 +23,10 @@ if(not os.path.exists(mondaiName+"in")) and (not os.path.exists(mondaiName+"out"
     os.mkdir(mondaiName+"out")
 
 if os.path.exists(mondaiName+"in/"+mondaiName+"in0.txt") or os.path.exists(mondaiName+"out/"+mondaiName+"out0.txt"):
-    print("dir already exist")
-    print("remove dir and try again")
+    j = 0
+    while os.path.exists(mondaiName+"in/"+mondaiName+"in"+str(j)+".txt") or os.path.exists(mondaiName+"out/"+mondaiName+"out"+str(j)+".txt"):
+        j+=1
+    print(j)
     sys.exit()
 
 #接続URL作成 html取得
