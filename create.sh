@@ -6,7 +6,8 @@ d=6
 if [[ $# == 2 ]]; then
 d=$2
 fi
-mkdir ../$1
+mkdir ../real/$1
 for ((i=0 ; i<d; i++)) do
-cp hinagata.cpp ../$1/${s:${i}:1}.cpp
+cp hinagata.cpp ../real/$1/${s:${i}:1}.cpp
 done
+cd ../real/$1
