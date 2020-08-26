@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
 const int mod = 1000000007;
 // const int mod = 998244353;
@@ -41,11 +41,11 @@ struct mint {
 istream& operator>>(istream& is, const mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 
-int main () {
+/*int main () {
   mint a= mod-1;
   cout << a.pow(2) << endl;
   cout << a.inv() << endl;
   mint b = 123;
   cout << b.inv() << endl;
   return 0;
-}
+}*/

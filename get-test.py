@@ -15,13 +15,22 @@ if len(sys.argv) != 3:
     sys.exit()
 
 def zerotuika(contestName,n):
-    #abc,arc,agc
-    prefix=contestName[0:3]
-    num=contestName[3:]
-    # 9 -> 009, 35 -> 035 0を n桁になるまで追加する
-    while len(num) < n:
-        num=str(0)+num
-    return prefix+num
+    flag=False
+    if "abc" in contestName:
+        flag=True
+    if "arc" in contestName:
+        flag=True
+    if "agc" in contestName:
+        flag=True
+    if flag:
+        #abc,arc,agc
+        prefix=contestName[0:3]
+        num=contestName[3:]
+        # 9 -> 009, 35 -> 035 0を n桁になるまで追加する
+        while len(num) < n:
+            num=str(0)+num
+        return prefix+num
+    return contestName
 
 # コマンドライン引数設定
 contestName = zerotuika(sys.argv[1],3)
