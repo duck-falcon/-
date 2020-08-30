@@ -29,7 +29,7 @@ void dijkstra(int s) {
 const int INF = 1001001001;
 int main() {
   int n,m;cin >> n >> m;
-  d = vi(n,INF);
+
   g = vector<vector<weight>>(n,vector<weight>());
   rep(i,m) {
     int a,b,t;
@@ -38,6 +38,13 @@ int main() {
     g.at(a).eb(weight{b,t});
     g.at(b).eb(weight{a,t});
   }
+  int ans = 0;
+  rep(i,n) {
+    d = vi(n,INF);
+    dijkstra(i);
+    rep(j,d.size()) if(d.at(j) != INF) ans = max(ans,d.at(j));
+  }
+  cout << ans << endl;
 
   return 0;
 }
