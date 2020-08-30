@@ -48,68 +48,67 @@ template<typename T> void pv2(vector<vector<T>> vec) {
   for(auto& v : vec) pv(v);
 }
 
-// dfs-tree
+// dfs
 
-// 頂点数、辺数
-int vertices,sides;
-// グラフ
+// 行、列
+int rows,columns;
+// 長方形グリッド
 vvi maze;
 // 既に到達した点
-vi seen;
+vvi seen;
 // ある地点からの最短距離
-vi d;
+vvi d;
+// start goal
+int sx,sy,gx,gy;
 
 const int INF = 100100101;
 
-void dfsLength(int x, int length) {
-  int sz = maze.at(x).size();
-  seen.at(x) = 1;
-  d.at(x) = min(d.at(x),length);
-  rep(i,sz) {
-    int nx = maze.at(x).at(i);
-    if(!seen.at(nx)) dfsLength(nx,length+1);
+// 4方向
+vi dx = {1,0,-1,0}, dy = {0,1,0,-1};
+// 8方向
+// vi dx = {1,1,0,-1,-1,-1,0,1}, dy = {0,1,1,1,0,-1,-1,-1};
+
+
+void dfs(int x, int y) {
+  int n = dx.size();
+  seen.at(x).at(y) = 0;
+  rep(i,n) {
+    int nx = x + dx.at(i), ny = y + dy.at(i);
+    if(isin(nx,0,columns) and isin(ny,0,rows) and maze.at(nx).at(ny) and !seen.at(nx).at(ny)) dfs(nx,ny);
   }
 }
 
-void dfs(int x) {
-  int sz = maze.at(x).size();
-  seen.at(x) = 1;
-  rep(i,sz) {
-    int nx = maze.at(x).at(i);
-    if(!seen.at(nx)) dfs(nx);
+void dfsLength(int x, int y, int length) {
+  int n = dx.size();
+  // 今の最短距離よりも長い場合は skip
+  if(d.at(x).at(y) <= length) return;
+  d.at(x).at(y) = length;
+  rep(i,n) {
+    int nx = x + dx.at(i), ny = y + dy.at(i);
+    if(isin(nx,0,columns) and isin(ny,0,rows) and maze.at(nx).at(ny)) dfsLength(nx,ny,length+1);
   }
 }
 
+// 入力整形例
 int main() {
-
-  cin >> vertices;
-  maze = vvi(vertices,vi());
-  seen = vi(vertices,0);
-  int u;cin >> u;
-  cin >> sides;
-  sides = vertices -1;
-  rep(i,sides) {
-    int a,b;cin >> a >> b;
-    a--;b--;
-    maze.at(a).eb(b);
-    maze.at(b).eb(a);
-  }
-
-  // つながっている頂点グループの数
-  /*int ans = 0;
-  rep(i,vertices) {
-    if(!seen.at(i)) {
-      dfs(i);
-      ans++;
+  // h w のこと
+  cin >> columns >> rows;
+  maze = vvi(columns,vi(rows,0));
+  seen = vvi(columns,vi(rows,0));
+  rep(i, columns) {
+    string s; cin >> s;
+    rep(j, rows) {
+      if(s.at(j)=='.') maze.at(i).at(j) = 1;
+      else if (s.at(j)=='#') maze.at(i).at(j) = 0;
+      else if (s.at(j) == 's') {sx = i; sy = j;maze.at(i).at(j)=1;}
+      else if (s.at(j) == 'g') {gx = i, gy = j;maze.at(i).at(j)=1;}
     }
   }
 
-  cout << ans << endl;*/
-
   // start からの最短距離を全部求める
-  /*int start = 3;
-  d = vi(vertices,INF);
-  dfsLength(start,0);*/
+  d = vvi(columns,vi(rows,INF));
+  dfsLength(sx,sy,0);
+  Yes(d.at(gx).at(gy)!=INF);
 
   return 0;
 }

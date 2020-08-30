@@ -6,7 +6,7 @@ int vertices,sides;
 vvi maze;
 // 既に到達した点
 vi seen;
-// ある地点からの最短距離
+// ある地点からの最短距離,閉路を含まない場合のみ計算可能（木など）
 vi d;
 
 const int INF = 100100101;
