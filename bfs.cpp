@@ -17,7 +17,7 @@ vi dx = {1,0,-1,0}, dy = {0,1,0,-1};
 // vi dx = {1,1,0,-1,-1,-1,0,1}, dy = {0,1,1,1,0,-1,-1,-1};
 
 // seen を d が -1 か否かで代用できるため、これを使うメリットがない気もするが残しておく
-void bfs(int x, int y) {
+/*void bfs(int x, int y) {
   int n = dx.size();
   seen.at(x).at(y) = 0;
   queue<P> que;
@@ -33,9 +33,9 @@ void bfs(int x, int y) {
       }
     }
   }
-}
+}*/
 
-void bfsLength(int x, int y) {
+void bfs(int x, int y) {
   int n = dx.size();
   queue<P> que;
   que.push(P(x,y));
