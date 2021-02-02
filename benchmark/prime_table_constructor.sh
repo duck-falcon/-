@@ -1,3 +1,4 @@
+#!/bin/bash
 filename=prime_table_constructor
 N=8
 #os=Windows

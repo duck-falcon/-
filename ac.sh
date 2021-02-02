@@ -1,3 +1,4 @@
+#!/bin/bash
 contestName=`pwd | awk -F "/" '{ print $NF }'`
 d=`python ../../library/get-test.py ${contestName} ${1}`
 g++ ${1}.cpp -o ${1}
