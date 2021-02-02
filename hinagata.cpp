@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+using namespace std;
 #define rep(i,n)    for(long long i = 0; i < (n) ; ++i)
 #define orep(i,n)   for(long long i = 1; i <= (n); ++i)   // one rep
 #define drep(i,n)   for(long long i = (n)-1; i >= 0; --i) // down rep
@@ -14,14 +15,15 @@
 #define eb emplace_back
 #define fcout cout << fixed << setprecision(15)
 
-
-using namespace std;
 using ll  = long long;
 using P   = pair<int,int>;
 using vi  = vector<int>;
 using vvi = vector<vi>;
 using vp  = vector<P>;
+using vvp = vector<vp>;
 using vl  = vector<ll>;
+using rpq = priority_queue<int,vi,less<int>>;   // 大きい順
+using pq  = priority_queue<int,vi,greater<int>>;// 小さい順
 
 template<typename T> void Yes(T flag) {
   cout << (flag ? "Yes" : "No") << endl;
